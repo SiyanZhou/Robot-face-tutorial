@@ -2,7 +2,7 @@
 
 ###### By Siyan Zhou 7/24/2017
 
-This tutorial introduce how to use Processing to bulid an animated and interactive talking robot face on your computer screen. It also covers some computer programing basics along the way. I assumed you already have Processing installed on your computer. If not, you can read the [tutorial by Casey Reas and Ben Fry](https://processing.org/tutorials/gettingstarted/) to get started.
+This tutorial introduces how to use Processing to bulid an animated and interactive talking robot face on your computer screen. It also covers some computer programing basics along the way. I assumed you already have Processing installed on your computer. If not, you can read the [tutorial by Casey Reas and Ben Fry](https://processing.org/tutorials/gettingstarted/) to get started.
 
 ## Coodinate System
 Before we begin programming with Processing, we must understanding that  computer screen is nothing more than a fancier piece of graph paper. Each pixel of the screen is a coordinate - two numbers, an "x" (horizontal) and a "y" (vertical) - that determines the location of a point in space. Similar to Cartesian coordinate system you leanred in eighth grade, (0,0) can be found at the top left with both positive x-axis pointing to the right and positive y-axis pointing down. And it is our job to specify what shapes and colors should appear at these pixel coordinates.
@@ -346,7 +346,7 @@ void mouth(){                                              //draw a mouth
 ## library
 The functions that we've called in the codes are wrritten and defined by someone else ealier. The codes for the functions are stored in the files associated with the Processing software. However, there are tons of other fuctions and feautres that are not included in the software. For example, if you want to make a text box and make the robot talk, you can't really call these functions becuase they don't exist in the Processing software on your computer. Fortunately, someone has already built these features and stored them in the Processing library, you just have to download their codes and import them into your own code file. Let's say we want to build an textbox under the robot face, where users can type whatever they want. Once sumbit it, the robot will open its mouth and speaks whatever is in the textbox. 
 
-###ControlP5
+### ControlP5
 ControlP5, a library wrritten by Andreas Schlegel, allows us to build user interface such as textbox and buttons in Processing. If you go to Sketch/Import Library/Add Library, and then search for ControlP5, you can intall it on your computer and use it in your code. To build a textbox and a submit botton, the code will look like this:
 
 ```Java
