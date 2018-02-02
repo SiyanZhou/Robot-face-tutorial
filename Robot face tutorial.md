@@ -1,9 +1,10 @@
-#Use Processing to Bulid an Talking Robot Face
-######By Siyan Zhou 7/24/2017
+# Use Processing to Bulid an Talking Robot Face
+
+###### By Siyan Zhou 7/24/2017
 
 This tutorial introduce how to use Processing to bulid an animated and interactive talking robot face on your computer screen. It also covers some computer programing basics along the way. I assumed you already have Processing installed on your computer. If not, you can read the [tutorial by Casey Reas and Ben Fry](https://processing.org/tutorials/gettingstarted/) to get started.
 
-##Coodinate System
+## Coodinate System
 Before we begin programming with Processing, we must understanding that  computer screen is nothing more than a fancier piece of graph paper. Each pixel of the screen is a coordinate - two numbers, an "x" (horizontal) and a "y" (vertical) - that determines the location of a point in space. Similar to Cartesian coordinate system you leanred in eighth grade, (0,0) can be found at the top left with both positive x-axis pointing to the right and positive y-axis pointing down. And it is our job to specify what shapes and colors should appear at these pixel coordinates.
  
  
@@ -22,7 +23,7 @@ If you run this code in the processing editor, a empty display window with 1120 
 
 
 
-##Simple Shapes
+## Simple Shapes
 As you can see the robot face example at the begining of the tutorial, we need to at least intruct the computer to draw a big rectangular for the face outline, three arcs for the eyelids and lips, and then four ellipses for the eyes. Some shape functions will look like this:
 
 ![rect](https://processing.org/reference/images/rect_1.png)
@@ -64,7 +65,7 @@ ellipse(x, y, width, height);
 * "width" is the width of the ellipse
 * "height" is the height of the ellipse
 
-##Color
+## Color
 
 In the digital world, color is defined as a range of numbers. In our robot face example we only need to discuss about the simplest case: black & white or grayscale. 0 means black, 255 means white. In between, every other number—50, 87, 162, 209, and so on—is a shade of gray ranging from black to white.
 
@@ -104,7 +105,7 @@ arc(560,371,140,70,0 ,PI);            //draw the mouth
  
  ![static robot face](pictures/static robot face.png)
  
-##Flow(setup and draw)
+## Flow(setup and draw)
 Even though we are able to tell the computer to draw a robot face with simple shapes and colors, they are all static images on the screen. In order to make an animated face, we need to understand the concept of the control flow. As you can see in the code example for the robot face above, each line of code is generally executed from top to bottom. Control flow structures, however, can allow you change execution order and determine what section of code is run in a program at a given time. You can regulate the flow of your program's execution with control statements and loops. Here is an example of such control flow statement: 
 
 ```java
@@ -117,13 +118,13 @@ void draw(){
 }
 
 ```
-##Variables
+## Variables
 One of the interactive features is that the robot's eyes track the mouse movement, so we need to vary the eyes's location according to the mouse postion. We need some mechanism for dynamically storing the mouse's location - variables.
 
-###Built-in varibles
+### Built-in varibles
 `mouseX ` and `mouseY` are built-in varibles in Processing. There are variables that stand for the X and Y location of the mouse. `width` and `height` are also Processing built-in variables which store the the current value for the width and height of the window. Built-in variable `frameCount` contains the number of frames that have been displayed since the program started. All these variables, which Procceing know what it is almost magically, were of cource implemented by some other programmers when Processing was created.
 
-###User-defined variables
+### User-defined variables
 We can also make up our own variables in three steps:
 
 1. Declare a variable by defining the variable data type and giving a name, and then followed by `;`. What are some possible types? The common data types are `int` and `float`. `int` means interger or a whole number such as 3, -10, 209, etc. `float` means a decimal or floating-point number such as 2.3323093 and -100.334343. A name could be anthing, but usually works with what you're using it for. Here is an example of decalring a variable:
@@ -146,14 +147,14 @@ We can also make up our own variables in three steps:
    ellipse(5.5*X,3*Y,X/4,Y/4);                           
    ```
 
-###Boolean variables
+### Boolean variables
 There is a special data type`boolean`. Unlike`int`or`float`, `bloolean`only has two possible values: true or false.
 
 
-##Conditionals
+## Conditionals
 As mentioned in the Flow section, you can regulate the flow of your program's execution with control statements. One type of control statements is conditional statement.
 
-###If, else if, else
+### If, else if, else
 There are `if` `else if` and `else` statements:
 
 ```java
@@ -167,7 +168,7 @@ If(mouseX>100){
 ```
 In this example, if X postion of the mouse is greater than 100 pixels, draw a rectangular. Otherwise if X postion of the mouse is less than 50 pixels, draw an arc. Otherwise, draw an ellipse.
 
-###Boolean expression
+### Boolean expression
 In the example above, `mouseX` is a boolean expression. A boolean expression evaluates only to true or false. There are many ways we can create a boolean expression such as using a boolean variable, but the simplest and useful way for us to start with is to use relaitonal operators and logical operators. 
 
 Here are some examples for relational operators: 
@@ -192,14 +193,14 @@ if(mouseX>100)||(mouseX<50){
 ```
 This means if X position of the mouse is either greater than 100 pixels or less than 50 pixels, the Processing will draw a rectangular.
 
-##Animated Robot face
+## Animated Robot face
 
 With conditional statement, we now have the ability to add some logic to the program and let the program take a path. We can almost make an animated robot face now. Before we can do that, we need to learn the concept of modulo and `map()` function. 
 
-###Modulo
+### Modulo
 Modulo calculates the remainder when one number is divided by another. For example, when 52.1 is divided by 10, the divisor (10) goes into the dividend (52.1) five times (5 * 10 == 50), and there is a remainder of 2.1 (52.1 - 50 == 2.1). Thus, 52.1 % 10 produces 2.1. In Processing, `%` stands for the modulo operator.
 
-###Map()
+### Map()
 `map()` is a calculation fuction allows you to take any range and map a value inside that rang to a new value in any other range. The `map()` calls five arguments and it looks this:
 
 ```Java
@@ -271,7 +272,7 @@ void draw(){
 }
 ```
 ![animated robot face](pictures/animated robot face.gif)
-##Functions
+## Functions
 We have been leanring all this stuff about programming and it's been great, but now comes the time where we need to start to look at tools and ways of organizing our code to make it more scalable for the future. Right now we are just write some variables up at the top and put some suff in `void setup(){}` and `void draw(){}`. It turns out that the `void draw(){}` is getting bigger and bigger and starts to look pretty messy. We need to realize that there are some blocks of the code that draw the eyes, and there are some part of the codes that draw the mouth and face outline. You can atuaclly start to organize you code by creating your own fuctions. 
 
 In fact, you are pretty familiar with the concept of fuctions. When you write the code `background(190)`, you are calling a function. Someone created this fuction and the name it background. This person defined what it means to be background(), and what are the codes should be executed when you, the processing user, call this function.
@@ -342,7 +343,7 @@ void mouth(){                                              //draw a mouth
 ```
 
 
-##library
+## library
 The functions that we've called in the codes are wrritten and defined by someone else ealier. The codes for the functions are stored in the files associated with the Processing software. However, there are tons of other fuctions and feautres that are not included in the software. For example, if you want to make a text box and make the robot talk, you can't really call these functions becuase they don't exist in the Processing software on your computer. Fortunately, someone has already built these features and stored them in the Processing library, you just have to download their codes and import them into your own code file. Let's say we want to build an textbox under the robot face, where users can type whatever they want. Once sumbit it, the robot will open its mouth and speaks whatever is in the textbox. 
 
 ###ControlP5
@@ -386,7 +387,7 @@ void setup(){
 ```
 ![Text box and submit botton](pictures/Text box and submit botton.png)
 
-###Ttslib
+### Ttslib
 Ttslib is anohter libarary built by Nikolaus Gradwohl to help make the sketches speak. To import the libary, the code will look like this:
 
 ```java
@@ -428,7 +429,7 @@ void setup(){
 } 
 ```
 
-##A Talking Robot Face
+## A Talking Robot Face
 
 Now we have set up both libraries but how can we connect them the robot can speak whatever is the in the textbox. Also, it would look more naturally if the mouth moves while the robot speaks. In this case, we need to use boolean variables. As discussed in previous section, a boolean variable can only have to values: true or false. So the program can take a path. Under "true" condition, some codes can be executed such as drawing a open mouth. However, we don't want to draw a open mouth while the robot is not talking, which will be "false" condiiton.
 
